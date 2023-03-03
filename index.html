@@ -2,28 +2,32 @@
 <html>
     <head>
         <title>My Project</title>
-        <link rel="stylesheet" href="JSproject.css" />
+        <link rel="stylesheet" href="style.css" />
         <meta name="description" content="Our first page">
         <meta name="keywords" content="html tutorial template">
     </head>
     <body>
         <h1>Brewed Beverages</h1>
         <div id="main-list">
-            <button>All Beverages</button>
         <p> </p>
         </div>
-            <form id="form" action="" method="POST">
-             <label for="new-recipe-idea">Share Comments Here: </label>
-             <input type="text" id="new-item" name="new-recipe-idea" placeholder="new comment">
-             </form>
+            <form id="comment-form">
+                <label for="author-input">Author:</label>
+                <input type="text" id="author-input" name="author" required>
+                <label for="comment-input">Comment:</label>
+                <textarea id="comment-input" name="comment" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
          <div id="list">
+         <div id="beer-details"></div>
             <h2>List of Beverages</h2>
                 <ul id="recipes"></ul>
-        <div id="new-list">
+            <button id="reset-button">Restore All Beverages</button>
+                <div id="new-list">
             <h3 id="my-header">Comment Section</h3>
-            <ul id="comment-list"></ul>
+            <ul id="comments-list"></ul>
         </div>
-    <script src="JSproject.js"></script>
+    <script src="index.js"></script>
   </div>
     </body>
 </html>

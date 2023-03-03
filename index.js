@@ -1,5 +1,5 @@
 
-let beers 
+let beers = []
 
 // set base url fpr API
 const BASE_URL = "https://api.punkapi.com/v2/"
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // fetch request and handle promise
 function getRecipes() {
     const recipes = document.querySelector("#recipes")
+
     fetch(BASE_URL + "beers/")
         .then(resp => resp.json())
         .then(data => {
@@ -29,29 +30,44 @@ function getRecipes() {
         }) 
     }
     recipes.addEventListener("click", displayBeer)
+
+    const resetButton = document.querySelector("#reset-button")
+    resetButton.addEventListener("click", (e) => {
+        renderData(beers)
+    })
 }
 
 function displayBeer(e) {
     const beer = beers.find(b => b.id === parseInt(e.target.id))
     recipes.textContent = ""
-    const h1 = document.createElement("h1")
-    h1.textContent = beer.name
-    recipes.append(h1)
+    const h3 = document.createElement("h3")
+    const para = document.createElement("p")
+    const para2 = document.createElement("p")
+    const para3 = document.createElement("p")
+    h3.textContent = beer.name
+    para.textContent = `Description: ${beer.description}`
+    para2.textContent = `Ideal Food Pairing: ${beer.food_pairing}`
+    para3.textContent = `Tagline: "${beer.tagline}"`
+    recipes.append(h3, para, para2, para3)
+    const details = document.querySelector("#beer-details");
+    details.textContent = ""
 }
 
-// build out comment form
-const form = document.querySelector("#form")
-const input = document.querySelector("#new-item").value
-const h3 = document.querySelector("h3")
+// build out comment form and render comments to the page
+const form = document.querySelector("#comment-form")
 form.addEventListener("submit", (e) => {
     e.preventDefault()
-    renderComments()
+    const authorInput = document.querySelector('#author-input')
+    const commentInput = document.querySelector('#comment-input') 
+    const date = new Date()
+    const timestamp = date.toLocaleString()
+    const newComment = document.createElement("li")
+    newComment.textContent = `${authorInput.value} - ${commentInput.value} - ${timestamp}`
+    const commentsList = document.querySelector("#comments-list")
+    commentsList.appendChild(newComment)
+    // add code to clear the form after submission
+    authorInput.value = ""
+    commentInput.value = ""
 })
-
-// render comments on the page following submission
-
-// function renderComments(e){
-//     const comment =
-// }
     
 // build out the master refresh button
