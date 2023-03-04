@@ -1,4 +1,5 @@
 
+// set empty array for data
 let beers = []
 
 // set base url fpr API
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // fetch request and handle promise
 function getRecipes() {
+    
     const recipes = document.querySelector("#recipes")
 
     fetch(BASE_URL + "beers/")
@@ -19,6 +21,7 @@ function getRecipes() {
             beers = data
         })
     const renderData = (data) => {
+        recipes.textContent = ""
         data.forEach(item => {
             const li = document.createElement("li")
             const a = document.createElement("a")
@@ -31,6 +34,7 @@ function getRecipes() {
     }
     recipes.addEventListener("click", displayBeer)
 
+// build out the master refresh button
     const resetButton = document.querySelector("#reset-button")
     resetButton.addEventListener("click", (e) => {
         renderData(beers)
@@ -49,8 +53,7 @@ function displayBeer(e) {
     para2.textContent = `Ideal Food Pairing: ${beer.food_pairing}`
     para3.textContent = `Tagline: "${beer.tagline}"`
     recipes.append(h3, para, para2, para3)
-    const details = document.querySelector("#beer-details");
-    details.textContent = ""
+    const beerDetails = h3+para+para2+para3
 }
 
 // build out comment form and render comments to the page
@@ -65,9 +68,8 @@ form.addEventListener("submit", (e) => {
     newComment.textContent = `${authorInput.value} - ${commentInput.value} - ${timestamp}`
     const commentsList = document.querySelector("#comments-list")
     commentsList.appendChild(newComment)
-    // add code to clear the form after submission
+// add code to clear the form after submission
     authorInput.value = ""
     commentInput.value = ""
 })
     
-// build out the master refresh button
