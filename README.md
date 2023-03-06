@@ -6,7 +6,6 @@ This project was created in order to practice and demonstrate my Javascript skil
 
 When you access the single page application, you have the ability to click on individual beer name to drill in on information about the beverage including the description, ideal food pairing, and a tagline. Additionally, there is a button labeled "Restore All Beverages" which you can use to refresh the master list of beverages and a form you can submit comments on the beverages.
 
-
 2. Installation Instructions
 
 If you would like to run this application, you must do the following:

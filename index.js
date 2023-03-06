@@ -25,6 +25,7 @@ function getRecipes() {
         data.forEach(item => {
             const li = document.createElement("li")
             const a = document.createElement("a")
+            a.addEventListener("click", displayBeer)
             a.textContent = item.name
             a.href = "#"
             a.id = item.id
@@ -32,7 +33,6 @@ function getRecipes() {
             recipes.appendChild(li)
         }) 
     }
-    recipes.addEventListener("click", displayBeer)
 
 // build out the master refresh button
     const resetButton = document.querySelector("#reset-button")
@@ -53,7 +53,6 @@ function displayBeer(e) {
     para2.textContent = `Ideal Food Pairing: ${beer.food_pairing}`
     para3.textContent = `Tagline: "${beer.tagline}"`
     recipes.append(h3, para, para2, para3)
-    const beerDetails = h3+para+para2+para3
 }
 
 // build out comment form and render comments to the page
