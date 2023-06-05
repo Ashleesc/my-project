@@ -2,7 +2,7 @@
 
 1. Project Description
 
-This project was created in order to practice and demonstrate my Javascript skills. This project consists of HTML, CSS, and Javscript. They come together to create a single page application. I used the an API which provides information on a variety of beers including their names and details about how they are made and guidance on how to pair their food. You can find the documentation here: https://punkapi.com/documentation/v2. 
+This project was created in order to practice and demonstrate my Javascript skills. This project consists of HTML, CSS, and Javscript. They come together to create a single page application. I used the an API which provides information on a variety of beers including their names and details about how they are made and guidance on how to pair them with food. You can find the documentation here: https://punkapi.com/documentation/v2. 
 
 When you access the single page application, you have the ability to click on individual beer name to drill in on information about the beverage including the description, ideal food pairing, and a tagline. Additionally, there is a button labeled "Restore All Beverages" which you can use to refresh the master list of beverages and a form you can submit comments on the beverages.
 
